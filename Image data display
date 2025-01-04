@@ -1,0 +1,44 @@
+%matplotlib inline
+import matplotlib.pyplot as plt
+from astropy.visualization import ZScaleInterval
+from astropy.io import fits
+
+# option_1
+file_location = "calibrated-T21-wuchen50-NGC7023-20230915-000150-Red-BIN1-W-600-001.fit"
+fitsdata = fits.open(file_location)
+
+image = fitsdata[0]
+interval = ZScaleInterval()
+minpixelvalue = interval.get_limits(image.data)[0]
+maxpixelvalue = 750
+
+plt.figure(figsize=(20,20))
+plt.imshow(image.data,vmin=minpixelvalue,vmax=maxpixelvalue, origin="lower", cmap="Greys_r")
+
+print('min pixel value', minpixelvalue)
+print('max pixel value', maxpixelvalue)
+
+plt.xlabel("Pixels")
+plt.ylabel("Pixels")
+plt.title("An Image of the Iris Nebula")
+plt.show()
+
+# option_2
+file_location = "calibrated-T21-wuchen50-NGC7023-20230915-000150-Red-BIN1-W-600-001.fit"
+fitsdata = fits.open(file_location)
+
+image = fitsdata[0]
+interval = ZScaleInterval()
+minpixelvalue = 500
+maxpixelvalue = 2000
+
+plt.figure(figsize=(20,20))
+plt.imshow(image.data,vmin=minpixelvalue,vmax=maxpixelvalue, origin="lower", cmap="Greys_r")
+
+print('min pixel value', minpixelvalue)
+print('max pixel value', maxpixelvalue)
+
+plt.xlabel("Pixels")
+plt.ylabel("Pixels")
+plt.title("An Image of the Iris Nebula")
+plt.show()
