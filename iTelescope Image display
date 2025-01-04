@@ -1,0 +1,54 @@
+image1 = fits.open(file_location1)[0]
+image2 = fits.open(file_location2)[0]
+image3 = fits.open(file_location3)[0]
+image4 = fits.open(file_location4)[0]
+image5 = fits.open(file_location5)[0]
+image6 = fits.open(file_location6)[0]
+image7 = fits.open(file_location7)[0]
+image8 = fits.open(file_location8)[0]
+image9 = fits.open(file_location9)[0]
+
+## Do prepartion on the scaling that would produce a nice image.
+interval = ZScaleInterval()
+minpixelvalue1 = interval.get_limits(image1.data)[0]
+minpixelvalue2 = interval.get_limits(image2.data)[0]
+minpixelvalue3 = interval.get_limits(image3.data)[0]
+minpixelvalue4 = interval.get_limits(image4.data)[0]
+minpixelvalue5 = interval.get_limits(image5.data)[0]
+minpixelvalue6 = interval.get_limits(image6.data)[0]
+minpixelvalue7 = interval.get_limits(image7.data)[0]
+minpixelvalue8 = interval.get_limits(image8.data)[0]
+minpixelvalue9 = interval.get_limits(image9.data)[0]
+
+maxpixelvalue1 = interval.get_limits(image1.data)[1]
+maxpixelvalue2 = interval.get_limits(image2.data)[1]
+maxpixelvalue3 = interval.get_limits(image3.data)[1]
+maxpixelvalue4 = interval.get_limits(image4.data)[1]
+maxpixelvalue5 = interval.get_limits(image5.data)[1]
+maxpixelvalue6 = interval.get_limits(image6.data)[1]
+maxpixelvalue7 = interval.get_limits(image7.data)[1]
+maxpixelvalue8 = interval.get_limits(image8.data)[1]
+maxpixelvalue9 = interval.get_limits(image9.data)[1]
+
+## Plot your data:
+figure, subplots = plt.subplots(3, 3, figsize=(17,17))
+subplots[0,0].imshow(image1.data,vmin=minpixelvalue1,vmax=maxpixelvalue1,cmap="Greys")
+subplots[0,1].imshow(image2.data,vmin=minpixelvalue2,vmax=maxpixelvalue2,cmap="Greys")
+subplots[0,2].imshow(image3.data,vmin=minpixelvalue3,vmax=maxpixelvalue3,cmap="Greys")
+subplots[1,0].imshow(image4.data,vmin=minpixelvalue4,vmax=maxpixelvalue4,cmap="Greys")
+subplots[1,1].imshow(image5.data,vmin=minpixelvalue5,vmax=maxpixelvalue5,cmap="Greys")
+subplots[1,2].imshow(image6.data,vmin=minpixelvalue6,vmax=maxpixelvalue6,cmap="Greys")
+subplots[2,0].imshow(image7.data,vmin=minpixelvalue7,vmax=maxpixelvalue7,cmap="Greys")
+subplots[2,1].imshow(image8.data,vmin=minpixelvalue8,vmax=maxpixelvalue8,cmap="Greys")
+subplots[2,2].imshow(image9.data,vmin=minpixelvalue9,vmax=maxpixelvalue9,cmap="Greys")
+
+# Add titles to each image:
+subplots[0,0].title.set_text("T32, Time = 120 s, Filter = Luminance")
+subplots[0,1].title.set_text("T32, Time = 300 s, Filter = Luminance")
+subplots[0,2].title.set_text("T32, Time = 600 s, Filter = Luminance")
+subplots[1,0].title.set_text("T30, Time = 300 s, Filter = Luminance")
+subplots[1,1].title.set_text("T32, Time = 300 s, Filter = Luminance")
+subplots[1,2].title.set_text("T59, Time = 300 s, Filter = Luminance")
+subplots[2,0].title.set_text("T11, Time = 600 s, Filter = Blue")
+subplots[2,1].title.set_text("T11, Time = 600 s, Filter = Green")
+subplots[2,2].title.set_text("T11, Time = 600 s, Filter = Luminance")
