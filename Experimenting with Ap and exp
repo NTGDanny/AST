@@ -1,0 +1,27 @@
+import imageio
+import matplotlib.pyplot as plt
+
+data1 = imageio.imread("Report2_ap12_exp10000.png")
+data2 = imageio.imread("Report2_ap12_exp15000.png")
+data3 = imageio.imread("Report2_ap12_exp32000.png")
+data4 = imageio.imread("Report2_ap4_exp10000.png")
+data5 = imageio.imread("Report2_ap8_exp10000.png")
+data6 = imageio.imread("Report2_ap12_exp10000.png")
+
+figure, subplots = plt.subplots(2, 3, figsize=(12,7))
+vmin = 0
+vmax = 255
+subplots[0,0].imshow(data1,vmin=vmin,vmax=vmax,cmap="Greys_r")
+subplots[0,1].imshow(data2,vmin=vmin,vmax=vmax,cmap="Greys_r")
+subplots[0,2].imshow(data3,vmin=vmin,vmax=vmax,cmap="Greys_r")
+subplots[1,0].imshow(data4,vmin=vmin,vmax=vmax,cmap="Greys_r")
+subplots[1,1].imshow(data5,vmin=vmin,vmax=vmax,cmap="Greys_r")
+subplots[1,2].imshow(data6,vmin=vmin,vmax=vmax,cmap="Greys_r")
+
+subplots[0,1].title.set_text("Time = 15000 micro-s, Ap = 12")
+subplots[0,2].title.set_text("Time = 32000 micro-s, Ap = 12")
+subplots[1,0].title.set_text("Time = 10000 micro-s, Ap = 04")
+subplots[1,1].title.set_text("Time = 10000 micro-s, Ap = 08")
+subplots[1,2].title.set_text("Time = 10000 micro-s, Ap = 12")
+
+plt.show()
