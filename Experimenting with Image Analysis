@@ -25,3 +25,7 @@ subplots[1,1].title.set_text("Time = 10000 micro-s, Ap = 08")
 subplots[1,2].title.set_text("Time = 10000 micro-s, Ap = 12")
 
 plt.show()
+
+plt.figure(figsize=(4,6))
+plt.imshow(data)
+plt.show()
